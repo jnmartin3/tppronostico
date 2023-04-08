@@ -2,14 +2,15 @@ package ar.utn.ap.pronosticos;
 
 public class Pronostico {
 
+	private Jugador jugador;
 	private Partido partido;
 	private Equipo equipo;
 	private ResultadoEnum resultado;
 	
 	
 	
-	public Pronostico(Partido partido, Equipo equipo, ResultadoEnum resultado) {
-		super();
+	public Pronostico(Jugador jugador, Partido partido, Equipo equipo, ResultadoEnum resultado) {
+		this.jugador = jugador;
 		this.partido = partido;
 		this.equipo = equipo;
 		this.resultado = resultado;
@@ -28,14 +29,14 @@ public class Pronostico {
 		return resultado;
 	}
 
-	public int puntos() {
+	public void puntos() {
 		//TODO completar
 		ResultadoEnum resultadoReal = partido.resultado();
 		
 		if(resultadoReal.equals(resultado)) {
-			return 1;
+			jugador.setPuntosJugador(1);
 		}else {
-			return 0;
+			jugador.setPuntosJugador(0);
 		}
 	}
 }
